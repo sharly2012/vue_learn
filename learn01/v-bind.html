@@ -1,0 +1,42 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-28 15:28:32
+ * @LastEditTime: 2020-02-28 15:53:54
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /vue_learn/learn01/v-bind.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind learning</title>
+    <script src="../lib/vue.min.js"></script>
+</head>
+<style>
+    .class1{
+        background: #444;
+        color: #eee;
+}
+</style>
+<body>
+    <div id="app">
+        <label for="r1">修改颜色：</label><input type="checkbox" v-model="use" id="r1">
+        <br><br>
+        <div v-bind:class="{'class1': use}">
+            <h1>v-bind:class 指令</h1>            
+        </div>
+        <div><a v-bind:href="url">百度一下</a></div>
+    </div>
+    <script>
+        var vm = new new Vue({
+            el: "#app",
+            data: {
+                use: false,
+                url: "https://www.baidu.com"
+            }
+        })
+    </script>
+</body>
+</html>
