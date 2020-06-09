@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue learning</title>
+    <script src="vue/vue.min.js" type="text/javascript"></script>  
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <button @click="randomTitle()">改变title</button>
+        <button @click="destoryVm()">销毁实例</button>
+    </div>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data () {
+                return {
+                    title: "Hello World !"
+                }
+            },
+            methods: {
+                randomTitle(){
+                    this.title = "Hello " + ["China", "World", "Universe", "Sharly"][Math.floor(Math.random()* 3.999)]
+                },
+                destoryVm(){
+                    this.$destroy()
+                }
+            },
+            beforeCreate () {
+                console.log('before create')
+            },
+            created () {
+                console.log('created')
+            },
+            beforeMount () {
+                console.log('before mount')
+            },
+            mounted () {
+                console.log('mounted')
+            },
+            beforeUpdate () {
+                console.log('before update')
+            },
+            updated () {
+                console.log('updated')
+            },
+            beforeDestroy () {
+                console.log('before destory')
+            },
+            destroyed () {
+                console.log('destory')
+            }
+        })
+    </script>
+</body>
+</html>
